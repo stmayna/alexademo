@@ -4,34 +4,49 @@ import os
 import random
 # from botocore.exceptions import ClientError
 
-hit_info = {"On going projects": "We are currently working on A, B, and C project.",
-            "Employee profile": "Ani, Budi, Caca, Didi, and Edi.",
-            "Departments": "Infrastructure, System Analyst, System Development, and Human Resources.",
-            "Company system and procedure": "Paid leave, Training, Health facilities, and Business Trip.",
-            "Working environment": "We claim the Prestigious Title of Best Companies to Work For in Asia 2023.",
-            "Job vacancy": "Visit www.hitconsulting.id for more details."
+hit_info = {"on going projects": "We are currently working on Coal Monitoring System <break time='0.75s'/>for Energi Batubara Lestari Company, <break time='0.75s'/>Pama Indo Mining, <break time='0.75s'/>and K.T.C. Coal Mining and Energy project.",
+            "employee profile": "To deliver our product, we collaborate with professional workers in their field.",
+            "departments": "To reach our goal, we break down the main task <break time='0.75s'/>and assign it to each different department. <break time='0.75s'/>Those teams are Infrastructure, <break time='0.75s'/>System Analyst, <break time='0.75s'/>System Development, <break time='0.75s'/>and Human Resources.",
+            "company system and procedure": "We are allowing our employee to take paid leave, <break time='0.75s'/>training, <break time='0.75s'/>health facilities, and <break time='0.75s'/>business trip.",
+            "working environment": "We claim the Prestigious Title of Best Companies to Work For in Asia 2023.",
+            "job vacancy": "Visit triple W . hitconsulting. i.d. for more details."
             }
 
-on_going_projects = {"Project A": "Definition of project A",
-                     "Project B": "Definition of project B",
-                     "Project C": "Definition of project C"
+on_going_projects = {"c.m.s": "Definition of project A.",
+                     "pim": "Definition of project B.",
+                     "k.t.c": "Definition of project C."
                      }
 
-employee_profile = {"Ani": "Definition of Ani",
-                    "Budi": "Definition of Budi",
-                    "Caca": "Definition of Caca"
+employee_profile = {"septy": "septy.",
+                    "said": "said",
+                    "angga": "angga",
+                    "malik": "malik.",
+                    "putri": "putri",
+                    "wilda": "wilda",
+                    "shania": "shania",
+                    "ramli": "ramli",
+                    "rafif": "rafif",
+                    "rizky": "rizky",
+                    "ika": "ika",
+                    "aldo": "aldo",
+                    "sani": "sani",
+                    "alfa": "alfa",
+                    "eddy": "eddy",
+                    "rinaldi": "rinaldi",
+                    "mayna": "mayna",
+                    "ferry": "ferry",
                     }
 
-departments = {"Infrastructure": "Definition of Infrastructure",
-               "System Analyst": "Definition of System Analyst",
-               "System Development": "Definition of System Development",
-               "Human Resources": "Definition of Human Resources"
+departments = {"infrastructure": "Definition of Infrastructure.",
+               "system analyst": "Definition of System Analyst.",
+               "system development": "Definition of System Development.",
+               "human resources": "Definition of Human Resources."
                }
 
-company_system_and_procedure = {"Paid leave": "Definition of Paid leave",
-                                "Training": "Definition of Training",
-                                "Health facilities": "Definition of Health facilities",
-                                "Business Trip": "Definition of Business Trip"
+company_system_and_procedure = {"paid leave": "Definition of Paid leave.",
+                                "training": "Definition of Training.",
+                                "health facilities": "Definition of Health facilities.",
+                                "business trip": "Definition of Business Trip."
                                 }
 
 
@@ -43,7 +58,7 @@ def get_random_info(topic):
 
 
 def get_value(topic):
-    """Return the item from list of element in main_asset."""
+    """Return the item from list of element."""
     # type: (List) -> str
     topic = list(topic.items())
     return topic
