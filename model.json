@@ -1,0 +1,290 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "hit digital indonesia",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "OnGoingProjectsIntent",
+          "slots": [],
+          "samples": [
+            "on going projects",
+            "current project",
+            "on going project"
+          ]
+        },
+        {
+          "name": "EmployeeProfileIntent",
+          "slots": [],
+          "samples": ["worker", "HIT employee", "employee", "employee profile"]
+        },
+        {
+          "name": "DepartmentsIntent",
+          "slots": [],
+          "samples": ["dept", "department"]
+        },
+        {
+          "name": "CompanySystemAndProcedureIntent",
+          "slots": [],
+          "samples": [
+            "procedure",
+            "system",
+            "system and procedure",
+            "company procedure",
+            "company system",
+            "company system and procedure"
+          ]
+        },
+        {
+          "name": "WorkingEnvironmentIntent",
+          "slots": [],
+          "samples": ["environment", "working environment"]
+        },
+        {
+          "name": "JobVacancyIntent",
+          "slots": [],
+          "samples": ["recruitment", "available job", "job", "job vacancy"]
+        },
+        {
+          "name": "RandomOnGoingProjectsIntent",
+          "slots": [
+            {
+              "name": "on_going_projects",
+              "type": "on_going_projects"
+            }
+          ],
+          "samples": ["{on_going_projects}"]
+        },
+        {
+          "name": "RandomEmployeeProfileIntent",
+          "slots": [
+            {
+              "name": "employee_profile",
+              "type": "employee_profile"
+            }
+          ],
+          "samples": ["{employee_profile}"]
+        },
+        {
+          "name": "RandomDepartmentsIntent",
+          "slots": [
+            {
+              "name": "departments",
+              "type": "departments"
+            }
+          ],
+          "samples": ["{departments}"]
+        },
+        {
+          "name": "RandomCompanySystemAndProcedureIntent",
+          "slots": [
+            {
+              "name": "company_system_and_procedure",
+              "type": "company_system_and_procedure"
+            }
+          ],
+          "samples": ["{company_system_and_procedure}"]
+        }
+      ],
+      "types": [
+        {
+          "name": "on_going_projects",
+          "values": [
+            {
+              "name": {
+                "value": "ktc"
+              }
+            },
+            {
+              "name": {
+                "value": "pim"
+              }
+            },
+            {
+              "name": {
+                "value": "cms"
+              }
+            }
+          ]
+        },
+        {
+          "name": "employee_profile",
+          "values": [
+            {
+              "name": {
+                "value": "ferry"
+              }
+            },
+            {
+              "name": {
+                "value": "mayna"
+              }
+            },
+            {
+              "name": {
+                "value": "rinaldi"
+              }
+            },
+            {
+              "name": {
+                "value": "eddy"
+              }
+            },
+            {
+              "name": {
+                "value": "alfa"
+              }
+            },
+            {
+              "name": {
+                "value": "abdullah"
+              }
+            },
+            {
+              "name": {
+                "value": "pratama"
+              }
+            },
+            {
+              "name": {
+                "value": "ika"
+              }
+            },
+            {
+              "name": {
+                "value": "rizky"
+              }
+            },
+            {
+              "name": {
+                "value": "rafif"
+              }
+            },
+            {
+              "name": {
+                "value": "ramli"
+              }
+            },
+            {
+              "name": {
+                "value": "latifah"
+              }
+            },
+            {
+              "name": {
+                "value": "wilda"
+              }
+            },
+            {
+              "name": {
+                "value": "putri"
+              }
+            },
+            {
+              "name": {
+                "value": "taufik"
+              }
+            },
+            {
+              "name": {
+                "value": "angga"
+              }
+            },
+            {
+              "name": {
+                "value": "saidillah"
+              }
+            },
+            {
+              "name": {
+                "value": "septy"
+              }
+            }
+          ]
+        },
+        {
+          "name": "departments",
+          "values": [
+            {
+              "name": {
+                "value": "human resources"
+              }
+            },
+            {
+              "name": {
+                "value": "system development"
+              }
+            },
+            {
+              "name": {
+                "value": "system analyst"
+              }
+            },
+            {
+              "name": {
+                "value": "infrastructure"
+              }
+            }
+          ]
+        },
+        {
+          "name": "company_system_and_procedure",
+          "values": [
+            {
+              "name": {
+                "value": "business trip"
+              }
+            },
+            {
+              "name": {
+                "value": "health facilities"
+              }
+            },
+            {
+              "name": {
+                "value": "training"
+              }
+            },
+            {
+              "name": {
+                "value": "paid leave"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
