@@ -5,7 +5,7 @@
 # session persistence, api calls, and more.
 # This sample is built using the handler classes approach in skill builder.
 from utils import get_random_info, get_value
-from utils import hit_info, on_going_projects, employee_profile, departments, company_system_and_procedure
+from utils import hit_info, on_going_projects, employee_profile, departments, company_system_and_procedure, questions
 import logging
 import ask_sdk_core.utils as ask_utils
 
@@ -18,10 +18,6 @@ from ask_sdk_model import Response
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
-# Import data from utils.py
-
-# Import functions from utils.py
 
 
 class LaunchRequestHandler(AbstractRequestHandler):
@@ -110,7 +106,7 @@ class EmployeeProfileIntentHandler(AbstractRequestHandler):
         random_topics = get_random_info(employee_profile)
         topic_1 = random_topics[0][0]
         topic_2 = random_topics[1][0]
-        random_offer = " <break time='0.75s'/>Don't you curious about one of them? <break time='0.75s'/> If yes, who? <break time='0.75s'/>I will give you a name like {topic_1} or {topic_2}. <break time='0.75s'/> Kindly give me a name.".format(
+        random_offer = " <break time='0.75s'/>Don't you curious about one of them? <break time='0.75s'/> If yes, with who? <break time='0.75s'/>I will give you a name like {topic_1} or {topic_2}.".format(
             topic_1=topic_1, topic_2=topic_2)
         speak_output = info + random_offer
         reprompt = "Sorry, what did you say again? Or you can say help to me."
@@ -188,7 +184,8 @@ class WorkingEnvironmentIntentHandler(AbstractRequestHandler):
         logger.info("In WorkingEnvironmentIntentHandler")
         info = get_value(hit_info)
         info = info[4][1]
-        speak_output = info
+        random_offer = " <break time='0.75s'/>What else do you want to know? <break time='0.75s'/> You can say I want to know more or help to me."
+        speak_output = info + random_offer
         reprompt = "Sorry, what did you say again? Or you can say help to me."
         return (
             handler_input.response_builder
@@ -210,7 +207,8 @@ class JobVacancyIntentHandler(AbstractRequestHandler):
         logger.info("In JobVacancyIntentHandler")
         info = get_value(hit_info)
         info = info[5][1]
-        speak_output = info
+        random_offer = " <break time='0.75s'/>What else do you want to know? <break time='0.75s'/> You can say I want to know more or help to me."
+        speak_output = info + random_offer
         reprompt = "Sorry, what did you say again? Or you can say help to me."
         return (
             handler_input.response_builder
@@ -233,7 +231,7 @@ class RandomOnGoingProjectsIntentHandler(AbstractRequestHandler):
         asset = handler_input.request_envelope.request.intent.slots["on_going_projects"].value
         try:
             content = on_going_projects[asset]
-            random_offer = " <break time='0.75s'/>What else do you want to know?"
+            random_offer = " <break time='0.75s'/>What else do you want to know? <break time='0.75s'/> You can say I want to know more or help to me."
             speak_output = content + random_offer
         except:
             reprompt = "Sorry, what did you say again? Or you can say help to me."
@@ -261,7 +259,7 @@ class RandomEmployeeProfileIntentHandler(AbstractRequestHandler):
         asset = handler_input.request_envelope.request.intent.slots["employee_profile"].value
         try:
             content = employee_profile[asset]
-            random_offer = " <break time='0.75s'/>What else do you want to know?"
+            random_offer = " <break time='0.75s'/>What else do you want to know? <break time='0.75s'/> You can say I want to know more or help to me."
             speak_output = content + random_offer
         except:
             reprompt = "Sorry, what did you say again? Or you can say help to me."
@@ -289,7 +287,7 @@ class RandomDepartmentsIntentHandler(AbstractRequestHandler):
         asset = handler_input.request_envelope.request.intent.slots["departments"].value
         try:
             content = departments[asset]
-            random_offer = " <break time='0.75s'/>What else do you want to know?"
+            random_offer = " <break time='0.75s'/>What else do you want to know? <break time='0.75s'/> You can say I want to know more or help to me."
             speak_output = content + random_offer
         except:
             reprompt = "Sorry, what did you say again? Or you can say help to me."
@@ -318,12 +316,57 @@ class RandomCompanySystemAndProcedureIntentHandler(AbstractRequestHandler):
             "company_system_and_procedure"].value
         try:
             content = company_system_and_procedure[asset]
-            random_offer = " <break time='0.75s'/>What else do you want to know?"
+            random_offer = " <break time='0.75s'/>What else do you want to know? <break time='0.75s'/> You can say I want to know more or help to me."
             speak_output = content + random_offer
         except:
             reprompt = "Sorry, what did you say again? Or you can say help to me."
 
         speak_output = speak_output
+        reprompt = "Sorry, what did you say again? Or you can say help to me."
+        return (
+            handler_input.response_builder
+            .speak(speak_output)
+            .ask(reprompt)
+            .response
+        )
+
+
+class RandomOfferIntentHandler(AbstractRequestHandler):
+    """Handler for Hello World Intent."""
+
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("RandomOfferIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        logger.info("In RandomOfferIntentHandler")
+        random_topics = get_random_info(questions)
+        topic_1 = random_topics[0][0]
+        topic_2 = random_topics[1][0]
+        random_offer = " <break time='0.75s'/>Alright! If you are still curious, you can say <break time='0.75s'/> {topic_1} or {topic_2} to me.".format(
+            topic_1=topic_1, topic_2=topic_2)
+        speak_output = random_offer
+        reprompt = "Sorry, what did you say again? Or you can say help to me."
+        return (
+            handler_input.response_builder
+            .speak(speak_output)
+            .ask(reprompt)
+            .response
+        )
+
+
+class ThankYouIntentHandler(AbstractRequestHandler):
+    """Handler for Hello World Intent."""
+
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return ask_utils.is_intent_name("ThankYouIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        logger.info("In ThankYouIntentHandler")
+        speak_output = "Okay, I am going to say thank you on Mayna's behalf, because she code me to do so. <break time='0.75s'/>Thank you for being a good listener on every morning session. <break time='0.75s'/>Thank you for helping her, <break time='0.75s'/>teaching her, <break time='0.75s'/>appreciating her, <break time='0.75s'/>sharing some food with her. <break time='0.75s'/>All in all, thank you for everything, <break time='0.75s'/>she is beyond happy because of all of your kind treatment towards her. <break time='0.75s'/>That's all, talk to you later."
         reprompt = "Sorry, what did you say again? Or you can say help to me."
         return (
             handler_input.response_builder
@@ -468,6 +511,8 @@ sb.add_request_handler(RandomOnGoingProjectsIntentHandler())
 sb.add_request_handler(RandomEmployeeProfileIntentHandler())
 sb.add_request_handler(RandomDepartmentsIntentHandler())
 sb.add_request_handler(RandomCompanySystemAndProcedureIntentHandler())
+sb.add_request_handler(RandomOfferIntentHandler())
+sb.add_request_handler(ThankYouIntentHandler())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
 sb.add_request_handler(FallbackIntentHandler())

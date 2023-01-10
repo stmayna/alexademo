@@ -116,6 +116,22 @@
             }
           ],
           "samples": ["{company_system_and_procedure}"]
+        },
+        {
+          "name": "RandomOfferIntent",
+          "slots": [],
+          "samples": [
+            "i want to know more",
+            "yes please tell me more",
+            "i want more details",
+            "i want more",
+            "more"
+          ]
+        },
+        {
+          "name": "ThankYouIntent",
+          "slots": [],
+          "samples": ["thanks", "say thank you", "thank you"]
         }
       ],
       "types": [
@@ -169,7 +185,7 @@
             },
             {
               "name": {
-                "value": "abdullah"
+                "value": "muhammad sani"
               }
             },
             {
